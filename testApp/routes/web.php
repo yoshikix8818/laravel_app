@@ -14,11 +14,3 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('todo', 'TodoController');
-Route::get('delete/{id}', 'TodoController@delete')->name('todo.delete');
-
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

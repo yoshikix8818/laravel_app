@@ -1,7 +1,7 @@
 @extends ('layouts.app')
 @section ('content')
 
-<h1 class="page-header">ToDo一覧</h1>
+<h1 class="page-header">{{Auth::user()->name}}のToDo一覧</h1>
 <p class="text-right">
   <a class="btn btn-success" href="/todo/create">新規作成</a>
 </p>
@@ -25,7 +25,7 @@
         <td class="align-middle">{{ $todo->updated_at }}</td>
         <td><a class="btn btn-primary" href="{{ route('todo.edit', $todo->id) }}">編集</a></td>
         <td>
-          {!! Form::open(['route' => ['todo.destroy', $todo->id], 'method' => 'DELETE']) !!}
+          {!! Form::open(['route' => ['todo.delete', $todo->id], 'method' => 'get']) !!}
             {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
           {!! Form::close() !!}
         </td>
